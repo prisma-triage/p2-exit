@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model categories {
+  id     Int         @id @default(autoincrement())
+  name   String      @unique
+  slug   String      @unique
+  parent categories?
+}
